@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Doseminder Testing</title>
+</head>
+<body>
+    <h3 >Connect to doseminder1 wifi and then click on fetch wifi button</h3><br>
+    <br>
+    <!-- <a data-inline="true">To unlock doseminder before wifi setup click on Unlock :- </a> <br> -->
+    <h3> To unlock doseminder before wifi setup click on unlock button :- </h3>
+    <br>
+    <a href="http://192.168.4.1/unlock_doseminder?" target="_blank" data-role="button" data-inline="true" style="width:20%;display:block;text-align:center;padding:.5em;background-color:#0073e2;color:#fff;border-radius:4px;box-shadow:0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);text-decoration:none">
+        Unlock</a>
+
+    <h3>To check the available wifi connections:- </h3>
+    <a href="http://192.168.4.1/WiFi" target="_blank" data-role="button" style="width:20%;display:block;text-align:center;padding:.5em;background-color:#0073e2;color:#fff;border-radius:4px;box-shadow:0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);text-decoration:none">get wifi</a> <br>
+    <br>
+    <h3 style="display: inline;">To connect doseminder to your desired :- </h3><br>
+    <br>
+    <input type="text" id="ssid" placeholder="wifi_name">
+    <input type="text" id="pass" placeholder="password">
+    <br>
+    <br>   
+    <button onclick="clickhandle(ssid,pass)" style="width:20%;display:block;text-align:center;padding:.5em;background-color:#0073e2;color:#fff;border-radius:4px;box-shadow:0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);text-decoration:none">Wifi connect</button>
+    <script>
+        function clickhandle(ssid,pass){
+            window.open('http://192.168.4.1/pswd_verify?ssid='+document.getElementById('ssid').value +"&password="+document.getElementById('pass').value,'_blank')
+        }
+    </script>
+    <br>
+    <h3>Unlock after doseminder setup:- </h3>
+    <br>
+    <button onclick="unlock(ip)" target="_blank" style="width:20%;display:block;text-align:center;padding:.5em;background-color:#0073e2;color:#fff;border-radius:4px;box-shadow:0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);text-decoration:none">Unlock</button>
+
+         <!-- <form action="http://10.255.0.9/unlock_doseminder?">
+        <button type="submit">Unlock</button>
+    
+    </form> -->
+     <script>
+         function unlock() {
+                window.open('http://' +document.getElementById('ip').value +'/unlock_doseminder?')
+             
+         }
+     </script>
+    <br>
+    <h3>To highlight a slot enter the ip address and slot no. and click on highlight slots button:- </h3>
+    <input type="text" id="ip" placeholder="Enter the new ip address">
+    <input type="text" id="slot" placeholder="Enter the slot no"> <br>
+    <br>
+    <button onclick="setip(ip,slot)" style="width:20%;display:block;text-align:center;padding:.5em;background-color:#0073e2;color:#fff;border-radius:4px;box-shadow:0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);text-decoration:none">Highlight slots</button> <br>
+    <script>
+        function setip(ip,slot){
+            window.open('http://' +document.getElementById('ip').value +'/highlight_pocket?pocket_number='+document.getElementById('slot').value,'_blank')
+        }
+    </script>
